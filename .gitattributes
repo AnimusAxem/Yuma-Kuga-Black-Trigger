@@ -1,17 +1,569 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+local player = game:FindService("Players").LocalPlayer
 
-# Custom for Visual Studio
-*.cs     diff=csharp
+playerc = player.Character
 
-# Standard to msysgit
-*.doc	 diff=astextplain
-*.DOC	 diff=astextplain
-*.docx diff=astextplain
-*.DOCX diff=astextplain
-*.dot  diff=astextplain
-*.DOT  diff=astextplain
-*.pdf  diff=astextplain
-*.PDF	 diff=astextplain
-*.rtf	 diff=astextplain
-*.RTF	 diff=astextplain
+player.Character:WaitForChild("Humanoid")
+
+local workspace = game:FindService("Workspace")
+
+
+--[[
+player.Character.Pants:Remove()
+player.Character.Shirt:Remove()
+]]
+player.Character:WaitForChild("Head")
+
+local d = playerc:GetChildren() 
+	for i=1, #d do 
+		if (d[i].className == "Hat") then 
+			d[i]:remove() 
+		end 
+	end
+
+local weld = function(p,p2)
+   local weld = Instance.new("Weld", p)
+   weld.Part0 = p
+   weld.Part1 = p2
+   weld.C0 = p2.CFrame:inverse() *p.CFrame
+   return weld
+end
+
+	print('Creating Hair')
+
+	local hrs = Instance.new("Model",playerc)
+	hrs.Name = "hairs"
+
+	local hair = Instance.new("Part", hrs) --Trigger Base
+	hair.Name = "hair"
+	hair.Transparency = 0
+	hair.Size = Vector3.new(1,1,1)
+	hair.CanCollide = false
+	hair.BrickColor = BrickColor.new(0,0,0);
+	hair.TopSurface = "Smooth"
+	hair.BottomSurface = "Smooth"
+	hair.Material = "Neon"
+	local hmesh = Instance.new("SpecialMesh", hair);
+	hmesh.MeshId = "http://www.roblox.com/asset/?id=16627529"
+	hmesh.Scale = Vector3.new(1.1,1.1,1.1);
+	local w3 = weld(player.Character:FindFirstChild("Head"),hair);
+	w3.C0 = CFrame.new(0,0.5,0) *CFrame.fromEulerAnglesXYZ(math.rad(0),math.rad(0),math.rad(0))
+
+	local hair1 = Instance.new("Part", hrs) --Trigger Base
+	hair1.Name = "hair1"
+	hair1.Transparency = 0
+	hair1.Size = Vector3.new(1,1,1)
+	hair1.CanCollide = false
+	hair1.BrickColor = BrickColor.new(0,0,0);
+	hair1.TopSurface = "Smooth"
+	hair1.BottomSurface = "Smooth"
+	hair1.Material = "Neon"
+	local hmesh1 = Instance.new("SpecialMesh", hair1);
+	hmesh1.MeshId = "http://www.roblox.com/asset/?id=76056263"
+	hmesh1.Scale = Vector3.new(1,1,1);
+	local w3 = weld(player.Character:FindFirstChild("Head"),hair1);
+	w3.C0 = CFrame.new(-0.1,0.22,0.2) *CFrame.fromEulerAnglesXYZ(math.rad(0),math.rad(0),math.rad(0))
+
+	local hair2 = Instance.new("Part", hrs) --Trigger Base
+	hair2.Name = "hair"
+	hair2.Transparency = 0
+	hair2.Size = Vector3.new(1,1,1)
+	hair2.CanCollide = false
+	hair2.BrickColor = BrickColor.new(0,0,0);
+	hair2.TopSurface = "Smooth"
+	hair2.BottomSurface = "Smooth"
+	hair2.Material = "Neon"
+	local hmesh2 = Instance.new("SpecialMesh", hair2);
+	hmesh2.MeshId = "http://www.roblox.com/asset/?id=62246019"
+	hmesh2.Scale = Vector3.new(1,1,1);
+	local w3 = weld(player.Character:FindFirstChild("Head"),hair2);
+	w3.C0 = CFrame.new(-0.08,0.29,0.25) *CFrame.fromEulerAnglesXYZ(math.rad(0),math.rad(0),math.rad(0))
+
+	print('Gathering Trigger')
+	
+	local band = Instance.new("Model",playerc)
+	band.Name = "Band"
+	
+	local part = Instance.new("Part", band) --Trigger Base
+	part.Name = "part"
+	part.Transparency = 0
+	part.Size = Vector3.new(1,1,1)
+	part.CanCollide = false
+	part.BrickColor = BrickColor.new("Really black");
+	part.TopSurface = "Smooth"
+	part.BottomSurface = "Smooth"
+	local mesh = Instance.new("SpecialMesh", part);
+	mesh.MeshId = "http://www.roblox.com/asset/?id="
+	mesh.MeshType = "Brick"
+	mesh.Scale = Vector3.new(1.05,0.25,1.05);
+	local w3 = weld(player.Character:FindFirstChild("Right Arm"),part);
+	w3.C0 = CFrame.new(0,-0.7,0) *CFrame.fromEulerAnglesXYZ(0,0,0)
+	
+	local part1 = Instance.new("Part", band) --Trigger Base
+	part1.Name = "part1"
+	part1.Transparency = 0
+	part1.Size = Vector3.new(1,1,1)
+	part1.CanCollide = false
+	part1.BrickColor = BrickColor.new("Institutional white");
+	part1.TopSurface = "Smooth"
+	part1.BottomSurface = "Smooth"
+	local mesh1 = Instance.new("SpecialMesh", part1);
+	mesh1.MeshId = "http://www.roblox.com/asset/?id="
+	mesh1.MeshType = "Brick"
+	mesh1.Scale = Vector3.new(1.06,0.05,1.06);
+	local w3 = weld(player.Character:FindFirstChild("Right Arm"),part1);
+	w3.C0 = CFrame.new(0,-0.7,0) *CFrame.fromEulerAnglesXYZ(0,0,0)
+
+	local part2 = Instance.new("Part", band) --Trigger Base
+	part2.Name = "part2"
+	part2.Transparency = 0
+	part2.Size = Vector3.new(1,1,1)
+	part2.CanCollide = false
+	part2.BrickColor = BrickColor.new("Institutional white");
+	part2.TopSurface = "Smooth"
+	part2.BottomSurface = "Smooth"
+	local mesh2 = Instance.new("SpecialMesh", part2);
+	mesh2.MeshId = "http://www.roblox.com/asset/?id="
+	mesh2.MeshType = "Cylinder"
+	mesh2.Scale = Vector3.new(1.06,0.2,1.06);
+	local w3 = weld(player.Character:FindFirstChild("Right Arm"),part2);
+	w3.C0 = CFrame.new(0,-0.7,0) *CFrame.fromEulerAnglesXYZ(0,math.rad(90),0)
+	
+	local part3 = Instance.new("Part", band) --Trigger Base
+	part3.Name = "part3"
+	part3.Transparency = 0
+	part3.Size = Vector3.new(1,1,1)
+	part3.CanCollide = false
+	part3.BrickColor = BrickColor.new("Really black");
+	part3.TopSurface = "Smooth"
+	part3.BottomSurface = "Smooth"
+	local mesh3 = Instance.new("SpecialMesh", part3);
+	mesh3.MeshId = "http://www.roblox.com/asset/?id="
+	mesh3.MeshType = "Cylinder"
+	mesh3.Scale = Vector3.new(1.07,0.15,0.15);
+	local w3 = weld(player.Character:FindFirstChild("Right Arm"),part3);
+	w3.C0 = CFrame.new(0,-0.7,0) *CFrame.fromEulerAnglesXYZ(0,math.rad(90),0)
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	player.Chatted:connect(function(message)
+	if message == "trigger on" then
+		print('Activated Trigger')
+--[[
+	local onm = Instance.new("Message",playerc)
+	onm.Text = "Trigger On!"
+]]
+	playerc.Humanoid.WalkSpeed = 35
+	playerc.Humanoid.MaxHealth = 500
+	wait(0.01)
+	playerc.Humanoid.Health = 500
+
+	local trigger = Instance.new("Model",playerc)
+	trigger.Name = "Trigger"
+	
+	local part4 = Instance.new("Part", trigger) --Trigger Base
+	part4.Name = "part4"
+	part4.Transparency = 1
+	part4.Size = Vector3.new(1,1,1)
+	part4.CanCollide = false
+	part4.BrickColor = BrickColor.new("Really black");
+	part4.TopSurface = "Smooth"
+	part4.BottomSurface = "Smooth"
+	local mesh4 = Instance.new("SpecialMesh", part4);
+	mesh4.MeshId = "http://www.roblox.com/asset/?id="
+	mesh4.MeshType = "Brick"
+	mesh4.Scale = Vector3.new(2.01,1.69,1.01);
+	local w3 = weld(player.Character:FindFirstChild("Torso"),part4);
+	w3.C0 = CFrame.new(0,0,0) *CFrame.fromEulerAnglesXYZ(0,0,0)
+
+	local part5 = Instance.new("Part", trigger) --Trigger Base
+	part5.Name = "part5"
+	part5.Transparency = 1
+	part5.Size = Vector3.new(1,1,1)
+	part5.CanCollide = false
+	part5.BrickColor = BrickColor.new("Really black");
+	part5.TopSurface = "Smooth"
+	part5.BottomSurface = "Smooth"
+	local mesh5 = Instance.new("SpecialMesh", part5);
+	mesh5.MeshId = "http://www.roblox.com/asset/?id="
+	mesh5.MeshType = "Brick"
+	mesh5.Scale = Vector3.new(1.01,1.69,1.01);
+	local w3 = weld(player.Character:FindFirstChild("Right Arm"),part5);
+	w3.C0 = CFrame.new(0,0,0) *CFrame.fromEulerAnglesXYZ(0,0,0)
+
+	local part6 = Instance.new("Part", trigger) --Trigger Base
+	part6.Name = "part6"
+	part6.Transparency = 1
+	part6.Size = Vector3.new(1,1,1)
+	part6.CanCollide = false
+	part6.BrickColor = BrickColor.new("Really black");
+	part6.TopSurface = "Smooth"
+	part6.BottomSurface = "Smooth"
+	local mesh6 = Instance.new("SpecialMesh", part6);
+	mesh6.MeshId = "http://www.roblox.com/asset/?id="
+	mesh6.MeshType = "Brick"
+	mesh6.Scale = Vector3.new(1.01,1.69,1.01);
+	local w3 = weld(player.Character:FindFirstChild("Left Arm"),part6);
+	w3.C0 = CFrame.new(0,0,0) *CFrame.fromEulerAnglesXYZ(0,0,0)
+
+	local part7 = Instance.new("Part", trigger) --Trigger Base
+	part7.Name = "part7"
+	part7.Transparency = 1
+	part7.Size = Vector3.new(1,1,1)
+	part7.CanCollide = false
+	part7.BrickColor = BrickColor.new("Really black");
+	part7.TopSurface = "Smooth"
+	part7.BottomSurface = "Smooth"
+	local mesh7 = Instance.new("SpecialMesh", part7);
+	mesh7.MeshId = "http://www.roblox.com/asset/?id="
+	mesh7.MeshType = "Brick"
+	mesh7.Scale = Vector3.new(1.01,1.69,1.01);
+	local w3 = weld(player.Character:FindFirstChild("Right Leg"),part7);
+	w3.C0 = CFrame.new(0,0,0) *CFrame.fromEulerAnglesXYZ(0,0,0)
+
+	local part8 = Instance.new("Part", trigger) --Trigger Base
+	part8.Name = "part8"
+	part8.Transparency = 1
+	part8.Size = Vector3.new(1,1,1)
+	part8.CanCollide = false
+	part8.BrickColor = BrickColor.new("Really black");
+	part8.TopSurface = "Smooth"
+	part8.BottomSurface = "Smooth"
+	local mesh8 = Instance.new("SpecialMesh", part8);
+	mesh8.MeshId = "http://www.roblox.com/asset/?id="
+	mesh8.MeshType = "Brick"
+	mesh8.Scale = Vector3.new(1.01,1.69,1.01);
+	local w3 = weld(player.Character:FindFirstChild("Left Leg"),part8);
+	w3.C0 = CFrame.new(0,0,0) *CFrame.fromEulerAnglesXYZ(0,0,0)
+
+	local part9 = Instance.new("Part", trigger) --Trigger Base
+	part9.Name = "part9"
+	part9.Transparency = 1
+	part9.Size = Vector3.new(1,1,1)
+	part9.CanCollide = false
+	part9.BrickColor = BrickColor.new("Really black");
+	part9.TopSurface = "Smooth"
+	part9.BottomSurface = "Smooth"
+	local mesh9 = Instance.new("SpecialMesh", part9);
+	mesh9.MeshId = "http://www.roblox.com/asset/?id="
+	mesh9.MeshType = "Cylinder"
+	mesh9.Scale = Vector3.new(0.23,1.22,1.22);
+	local w3 = weld(player.Character:FindFirstChild("Head"),part9);
+	w3.C0 = CFrame.new(0,-0.405,0) *CFrame.fromEulerAnglesXYZ(math.rad(0),math.rad(90),math.rad(90))
+
+	local part10 = Instance.new("Part", trigger) --Trigger Base
+	part10.Name = "part10"
+	part10.Transparency = 1
+	part10.Size = Vector3.new(1,1,1)
+	part10.CanCollide = false
+	part10.BrickColor = BrickColor.new("Bright red");
+	part10.TopSurface = "Smooth"
+	part10.BottomSurface = "Smooth"
+	part10.Material = "Neon"
+	local mesh10 = Instance.new("SpecialMesh", part10);
+	mesh10.MeshId = "http://www.roblox.com/asset/?id="
+	mesh10.MeshType = "Cylinder"
+	mesh10.Scale = Vector3.new(0.05,1.23,1.23);
+	local w3 = weld(player.Character:FindFirstChild("Head"),part10);
+	w3.C0 = CFrame.new(0,-0.31,0) *CFrame.fromEulerAnglesXYZ(math.rad(0),math.rad(90),math.rad(90))
+
+	local part11 = Instance.new("Part", trigger) --Trigger Base
+	part11.Name = "part11"
+	part11.Transparency = 1
+	part11.Size = Vector3.new(1,1,1)
+	part11.CanCollide = false
+	part11.BrickColor = BrickColor.new("Bright red");
+	part11.TopSurface = "Smooth"
+	part11.BottomSurface = "Smooth"
+	part11.Material = "Neon"
+	local mesh11 = Instance.new("SpecialMesh", part11);
+	mesh11.MeshId = "http://www.roblox.com/asset/?id="
+	mesh11.MeshType = "Cylinder"
+	mesh11.Scale = Vector3.new(0.05,1.23,1.23);
+	local w3 = weld(player.Character:FindFirstChild("Head"),part11);
+	w3.C0 = CFrame.new(0,-0.47,0) *CFrame.fromEulerAnglesXYZ(math.rad(0),math.rad(90),math.rad(90))
+
+	local part12 = Instance.new("Part", trigger) --Trigger Base
+	part12.Name = "part12"
+	part12.Transparency = 1
+	part12.Size = Vector3.new(1,1,1)
+	part12.CanCollide = false
+	part12.BrickColor = BrickColor.new("Bright red");
+	part12.TopSurface = "Smooth"
+	part12.BottomSurface = "Smooth"
+	part12.Material = "Neon"
+	local mesh12 = Instance.new("SpecialMesh", part12);
+	mesh12.MeshId = "http://www.roblox.com/asset/?id="
+	mesh12.MeshType = "Brick"
+	mesh12.Scale = Vector3.new(0.6,.1,1.02);
+	local w3 = weld(player.Character:FindFirstChild("Torso"),part12);
+	w3.C0 = CFrame.new(0.7,0.85,0) *CFrame.fromEulerAnglesXYZ(math.rad(0),math.rad(0),math.rad(20))
+
+	local part13 = Instance.new("Part", trigger) --Trigger Base
+	part13.Name = "part13"
+	part13.Transparency = 1
+	part13.Size = Vector3.new(1,1,1)
+	part13.CanCollide = false
+	part13.BrickColor = BrickColor.new("Bright red");
+	part13.TopSurface = "Smooth"
+	part13.BottomSurface = "Smooth"
+	part13.Material = "Neon"
+	local mesh13 = Instance.new("SpecialMesh", part13);
+	mesh13.MeshId = "http://www.roblox.com/asset/?id="
+	mesh13.MeshType = "Brick"
+	mesh13.Scale = Vector3.new(0.6,.1,1.02);
+	local w3 = weld(player.Character:FindFirstChild("Torso"),part13);
+	w3.C0 = CFrame.new(-0.7,0.85,0) *CFrame.fromEulerAnglesXYZ(math.rad(0),math.rad(0),math.rad(-20))
+
+	local part14 = Instance.new("Part", trigger) --Trigger Base
+	part14.Name = "part14"
+	part14.Transparency = 1
+	part14.Size = Vector3.new(1,1,1)
+	part14.CanCollide = false
+	part14.BrickColor = BrickColor.new("Bright red");
+	part14.TopSurface = "Smooth"
+	part14.BottomSurface = "Smooth"
+	part14.Material = "Neon"
+	local mesh14 = Instance.new("SpecialMesh", part14);
+	mesh14.MeshId = "http://www.roblox.com/asset/?id="
+	mesh14.MeshType = "Brick"
+	mesh14.Scale = Vector3.new(0.87,.1,1.02);
+	local w3 = weld(player.Character:FindFirstChild("Torso"),part14);
+	w3.C0 = CFrame.new(0,0.75,0) *CFrame.fromEulerAnglesXYZ(math.rad(0),math.rad(0),math.rad(0))
+
+	local part15 = Instance.new("Part", trigger) --Trigger Base
+	part15.Name = "part15"
+	part15.Transparency = 1
+	part15.Size = Vector3.new(1,1,1)
+	part15.CanCollide = false
+	part15.BrickColor = BrickColor.new("Bright red");
+	part15.TopSurface = "Smooth"
+	part15.BottomSurface = "Smooth"
+	part15.Material = "Neon"
+	local mesh15 = Instance.new("SpecialMesh", part15);
+	mesh15.MeshId = "http://www.roblox.com/asset/?id="
+	mesh15.MeshType = "Brick"
+	mesh15.Scale = Vector3.new(0.5,.1,1.02);
+	local w3 = weld(player.Character:FindFirstChild("Torso"),part15);
+	w3.C0 = CFrame.new(0.49,0.51,0) *CFrame.fromEulerAnglesXYZ(math.rad(0),math.rad(0),math.rad(80))
+
+	local part16 = Instance.new("Part", trigger) --Trigger Base
+	part16.Name = "part16"
+	part16.Transparency = 1
+	part16.Size = Vector3.new(1,1,1)
+	part16.CanCollide = false
+	part16.BrickColor = BrickColor.new("Bright red");
+	part16.TopSurface = "Smooth"
+	part16.BottomSurface = "Smooth"
+	part16.Material = "Neon"
+	local mesh16 = Instance.new("SpecialMesh", part16);
+	mesh16.MeshId = "http://www.roblox.com/asset/?id="
+	mesh16.MeshType = "Brick"
+	mesh16.Scale = Vector3.new(0.5,.1,1.02);
+	local w3 = weld(player.Character:FindFirstChild("Torso"),part16);
+	w3.C0 = CFrame.new(-0.49,0.51,0) *CFrame.fromEulerAnglesXYZ(math.rad(0),math.rad(0),math.rad(-80))
+
+	local part17 = Instance.new("Part", trigger) --Trigger Base
+	part17.Name = "part17"
+	part17.Transparency = 1
+	part17.Size = Vector3.new(1,1,1)
+	part17.CanCollide = false
+	part17.BrickColor = BrickColor.new("Bright red");
+	part17.TopSurface = "Smooth"
+	part17.BottomSurface = "Smooth"
+	part17.Material = "Neon"
+	local mesh17 = Instance.new("SpecialMesh", part17);
+	mesh17.MeshId = "http://www.roblox.com/asset/?id="
+	mesh17.MeshType = "Brick"
+	mesh17.Scale = Vector3.new(0.9,.1,1.02);
+	local w3 = weld(player.Character:FindFirstChild("Torso"),part17);
+	w3.C0 = CFrame.new(0,0.33,0) *CFrame.fromEulerAnglesXYZ(math.rad(0),math.rad(0),math.rad(0))
+
+	local part18 = Instance.new("Part", trigger) --Trigger Base
+	part18.Name = "part18"
+	part18.Transparency = 1
+	part18.Size = Vector3.new(1,1,1)
+	part18.CanCollide = false
+	part18.BrickColor = BrickColor.new("Bright red");
+	part18.TopSurface = "Smooth"
+	part18.BottomSurface = "Smooth"
+	part18.Material = "Neon"
+	local mesh18 = Instance.new("SpecialMesh", part18);
+	mesh18.MeshId = "http://www.roblox.com/asset/?id="
+	mesh18.MeshType = "Brick"
+	mesh18.Scale = Vector3.new(0.1,.1,1.02);
+	local w3 = weld(player.Character:FindFirstChild("Torso"),part18);
+	w3.C0 = CFrame.new(0.97,0.96,0) *CFrame.fromEulerAnglesXYZ(math.rad(0),math.rad(0),math.rad(0))
+
+	local part19 = Instance.new("Part", trigger) --Trigger Base
+	part19.Name = "part19"
+	part19.Transparency = 1
+	part19.Size = Vector3.new(1,1,1)
+	part19.CanCollide = false
+	part19.BrickColor = BrickColor.new("Bright red");
+	part19.TopSurface = "Smooth"
+	part19.BottomSurface = "Smooth"
+	part19.Material = "Neon"
+	local mesh19 = Instance.new("SpecialMesh", part19);
+	mesh19.MeshId = "http://www.roblox.com/asset/?id="
+	mesh19.MeshType = "Brick"
+	mesh19.Scale = Vector3.new(0.1,.1,1.02);
+	local w3 = weld(player.Character:FindFirstChild("Torso"),part19);
+	w3.C0 = CFrame.new(-0.97,0.96,0) *CFrame.fromEulerAnglesXYZ(math.rad(0),math.rad(0),math.rad(0))
+
+	local part20 = Instance.new("Part", trigger) --Trigger Base
+	part20.Name = "part20"
+	part20.Transparency = 1
+	part20.Size = Vector3.new(1,1,1)
+	part20.CanCollide = false
+	part20.BrickColor = BrickColor.new("Bright red");
+	part20.TopSurface = "Smooth"
+	part20.BottomSurface = "Smooth"
+	part20.Material = "Neon"
+	local mesh20 = Instance.new("SpecialMesh", part20);
+	mesh20.MeshId = "http://www.roblox.com/asset/?id="
+	mesh20.MeshType = "Brick"
+	mesh20.Scale = Vector3.new(0.45,.1,1.02);
+	local w3 = weld(player.Character:FindFirstChild("Torso"),part20);
+	w3.C0 = CFrame.new(-0.2,0.51,0) *CFrame.fromEulerAnglesXYZ(math.rad(0),math.rad(0),math.rad(-70))
+
+	local part21 = Instance.new("Part", trigger) --Trigger Base
+	part21.Name = "part21"
+	part21.Transparency = 1
+	part21.Size = Vector3.new(1,1,1)
+	part21.CanCollide = false
+	part21.BrickColor = BrickColor.new("Bright red");
+	part21.TopSurface = "Smooth"
+	part21.BottomSurface = "Smooth"
+	part21.Material = "Neon"
+	local mesh21 = Instance.new("SpecialMesh", part21);
+	mesh21.MeshId = "http://www.roblox.com/asset/?id="
+	mesh21.MeshType = "Brick"
+	mesh21.Scale = Vector3.new(0.45,.1,1.02);
+	local w3 = weld(player.Character:FindFirstChild("Torso"),part21);
+	w3.C0 = CFrame.new(0.2,0.51,0) *CFrame.fromEulerAnglesXYZ(math.rad(0),math.rad(0),math.rad(70))
+
+	local part22 = Instance.new("Part", trigger) --Trigger Base
+	part22.Name = "part22"
+	part22.Transparency = 1
+	part22.Size = Vector3.new(1,1,1)
+	part22.CanCollide = false
+	part22.BrickColor = BrickColor.new("Bright red");
+	part22.TopSurface = "Smooth"
+	part22.BottomSurface = "Smooth"
+	part22.Material = "Neon"
+	local mesh22 = Instance.new("SpecialMesh", part22);
+	mesh22.MeshId = "http://www.roblox.com/asset/?id="
+	mesh22.MeshType = "Brick"
+	mesh22.Scale = Vector3.new(0.1,0.1,1.02);
+	local w3 = weld(player.Character:FindFirstChild("Right Arm"),part22);
+	w3.C0 = CFrame.new(-0.46,0.96,0) *CFrame.fromEulerAnglesXYZ(math.rad(0),math.rad(0),math.rad(0))
+
+	local part23 = Instance.new("Part", trigger) --Trigger Base
+	part23.Name = "part23"
+	part23.Transparency = 1
+	part23.Size = Vector3.new(1,1,1)
+	part23.CanCollide = false
+	part23.BrickColor = BrickColor.new("Bright red");
+	part23.TopSurface = "Smooth"
+	part23.BottomSurface = "Smooth"
+	part23.Material = "Neon"
+	local mesh23 = Instance.new("SpecialMesh", part23);
+	mesh23.MeshId = "http://www.roblox.com/asset/?id="
+	mesh23.MeshType = "Brick"
+	mesh23.Scale = Vector3.new(0.1,0.1,1.02);
+	local w3 = weld(player.Character:FindFirstChild("Left Arm"),part23);
+	w3.C0 = CFrame.new(0.46,0.96,0) *CFrame.fromEulerAnglesXYZ(math.rad(0),math.rad(0),math.rad(0))
+
+	local part24 = Instance.new("Part", trigger) --Trigger Base
+	part24.Name = "part24"
+	part24.Transparency = 0
+	part24.Size = Vector3.new(1,1,1)
+	part24.CanCollide = false
+	part24.BrickColor = BrickColor.new("Bright red");
+	part24.TopSurface = "Smooth"
+	part24.BottomSurface = "Smooth"
+	part24.Material = "Neon"
+	local mesh24 = Instance.new("SpecialMesh", part24);
+	mesh24.MeshId = "http://www.roblox.com/asset/?id="
+	mesh24.MeshType = "Brick"
+	mesh24.Scale = Vector3.new(0.1,0.4,1.02);
+	local w3 = weld(player.Character:FindFirstChild("Torso"),part24);
+	w3.C0 = CFrame.new(0.97,0.5,0) *CFrame.fromEulerAnglesXYZ(math.rad(0),math.rad(0),math.rad(0))
+
+	for i = 1, 25 do
+	wait()
+		playerc.Trigger.part4.Transparency = playerc.Trigger.part4.Transparency - 0.04
+		playerc.Trigger.part5.Transparency = playerc.Trigger.part5.Transparency - 0.04
+		playerc.Trigger.part6.Transparency = playerc.Trigger.part6.Transparency - 0.04
+		playerc.Trigger.part7.Transparency = playerc.Trigger.part7.Transparency - 0.04
+		playerc.Trigger.part8.Transparency = playerc.Trigger.part8.Transparency - 0.04
+		playerc.Trigger.part9.Transparency = playerc.Trigger.part9.Transparency - 0.04
+		playerc.Trigger.part10.Transparency = playerc.Trigger.part10.Transparency - 0.04
+		playerc.Trigger.part11.Transparency = playerc.Trigger.part11.Transparency - 0.04
+		playerc.Trigger.part12.Transparency = playerc.Trigger.part12.Transparency - 0.04
+		playerc.Trigger.part13.Transparency = playerc.Trigger.part13.Transparency - 0.04
+		playerc.Trigger.part14.Transparency = playerc.Trigger.part14.Transparency - 0.04
+		playerc.Trigger.part15.Transparency = playerc.Trigger.part15.Transparency - 0.04
+		playerc.Trigger.part16.Transparency = playerc.Trigger.part16.Transparency - 0.04
+		playerc.Trigger.part17.Transparency = playerc.Trigger.part17.Transparency - 0.04
+		playerc.Trigger.part18.Transparency = playerc.Trigger.part18.Transparency - 0.04
+		playerc.Trigger.part19.Transparency = playerc.Trigger.part19.Transparency - 0.04
+		playerc.Trigger.part20.Transparency = playerc.Trigger.part20.Transparency - 0.04
+		playerc.Trigger.part21.Transparency = playerc.Trigger.part21.Transparency - 0.04
+		playerc.Trigger.part22.Transparency = playerc.Trigger.part22.Transparency - 0.04
+		playerc.Trigger.part23.Transparency = playerc.Trigger.part23.Transparency - 0.04
+		playerc.Trigger.part24.Transparency = playerc.Trigger.part24.Transparency - 0.04
+		--[[
+		playerc.Trigger.part25.Transparency = playerc.Trigger.part25.Transparency - 0.04
+		playerc.Trigger.part26.Transparency = playerc.Trigger.part26.Transparency - 0.04
+		playerc.Trigger.part27.Transparency = playerc.Trigger.part27.Transparency - 0.04
+		playerc.Trigger.part28.Transparency = playerc.Trigger.part28.Transparency - 0.04
+		playerc.Trigger.part29.Transparency = playerc.Trigger.part29.Transparency - 0.04
+		playerc.Trigger.part30.Transparency = playerc.Trigger.part30.Transparency - 0.04
+		playerc.Trigger.part31.Transparency = playerc.Trigger.part31.Transparency - 0.04
+		playerc.Trigger.part32.Transparency = playerc.Trigger.part32.Transparency - 0.04
+		playerc.Trigger.part33.Transparency = playerc.Trigger.part33.Transparency - 0.04
+		playerc.Trigger.part34.Transparency = playerc.Trigger.part34.Transparency - 0.04
+		]]
+	end
+
+	
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------
+player.Chatted:connect(function(message)
+	if message == "trigger off" then
+		print('Deactivated Trigger')
+--[[
+	local offm = Instance.new("Message",playerc)
+	offm.text = "Trigger Off!"
+]]
+	playerc.Humanoid.WalkSpeed = 16
+	playerc.Humanoid.MaxHealth = 100
+	wait(0.01)
+	playerc.Humanoid.Health = 100
+	
+	for i = 1, 25 do
+	wait()
+		playerc.Trigger.part4.Transparency = playerc.Trigger.part4.Transparency + 0.04
+		playerc.Trigger.part5.Transparency = playerc.Trigger.part5.Transparency + 0.04
+		playerc.Trigger.part6.Transparency = playerc.Trigger.part6.Transparency + 0.04
+		playerc.Trigger.part7.Transparency = playerc.Trigger.part7.Transparency + 0.04
+		playerc.Trigger.part8.Transparency = playerc.Trigger.part8.Transparency + 0.04
+		playerc.Trigger.part9.Transparency = playerc.Trigger.part9.Transparency + 0.04
+		playerc.Trigger.part10.Transparency = playerc.Trigger.part10.Transparency + 0.04
+		playerc.Trigger.part11.Transparency = playerc.Trigger.part11.Transparency + 0.04
+		playerc.Trigger.part12.Transparency = playerc.Trigger.part12.Transparency + 0.04
+		playerc.Trigger.part13.Transparency = playerc.Trigger.part13.Transparency + 0.04
+		playerc.Trigger.part14.Transparency = playerc.Trigger.part14.Transparency + 0.04
+		playerc.Trigger.part15.Transparency = playerc.Trigger.part15.Transparency + 0.04
+		playerc.Trigger.part16.Transparency = playerc.Trigger.part16.Transparency + 0.04
+		playerc.Trigger.part17.Transparency = playerc.Trigger.part17.Transparency + 0.04
+		playerc.Trigger.part18.Transparency = playerc.Trigger.part18.Transparency + 0.04
+		playerc.Trigger.part19.Transparency = playerc.Trigger.part19.Transparency + 0.04
+		playerc.Trigger.part20.Transparency = playerc.Trigger.part20.Transparency + 0.04
+		playerc.Trigger.part21.Transparency = playerc.Trigger.part21.Transparency + 0.04
+		end
+	end
+end)
+
+
+
